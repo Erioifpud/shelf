@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.0",
+    "@ant-design/icons": "^5.4.0",
     "@plasmohq/redux-persist": "^6.1.0",
     "@plasmohq/storage": "^1.11.0",
     "@reduxjs/toolkit": "^2.2.7",
