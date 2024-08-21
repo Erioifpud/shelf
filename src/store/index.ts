@@ -16,11 +16,11 @@ import {
 } from "@plasmohq/redux-persist"
 import { Storage } from "@plasmohq/storage"
 
-import counterSlice from "./counter-slice"
+import siteSlice from "./site/site-slice"
 
 // Here you can add all your reducers
 const combinedReducers = combineReducers({
-  counter: counterSlice
+  site: siteSlice
 })
 
 const persistConfig = {
