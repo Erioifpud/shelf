@@ -20,12 +20,3 @@ export const router = createHashRouter(
     </Route>
   )
 )
-
-
-// {
-//   element: <AppLayout />,
-//   children: [
-//     { path: '/', element: <HomePage /> },
-//     { path: 'edit', element: <EditPage /> }
-//   ]
-// }
