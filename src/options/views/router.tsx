@@ -15,8 +15,9 @@ export const router = createHashRouter(
     <Route element={<AppLayout />}>
       <Route index path='/' element={<HomePage />} />
       <Route path="/edit" element={<EditPage />}>
-        <Route index path="" element={<SiteSelect />} />
-        <Route path=":id" element={<CommonEdit />} />
+        <Route path="" element={<SiteSelect />}>
+          <Route path=":id" element={<CommonEdit />}></Route>
+        </Route>
       </Route>
       <Route
         path="*"

@@ -1,38 +1,77 @@
-import { memo } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card"
+import { memo, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet, useNavigate } from 'react-router-dom';
+import ActionMenu from '~components/ActionMenu';
+import { Button } from '~components/ui/button';
 import type { RootState } from '~store';
+import { createSite, deleteSite } from '~store/site/site-slice';
+import { cn } from '~utils/index';
+import { useCurrentSiteId } from '../../hooks/useSite';
 
 const SiteSelect = memo(() => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const currentSiteId = useCurrentSiteId()
   const sites = useSelector((state: RootState) => state.site.sites)
 
+  const handleDelete = useCallback((id: string) => {
+    // TODO: 确认弹窗
+    if (currentSiteId === id) {
+      navigate('/edit', { replace: true })
+    }
+    dispatch(deleteSite(id))
+    }, [dispatch, currentSiteId, navigate])
+
+  const handleSelectSite = useCallback((id: string) => {
+    navigate(`/edit/${id}`)
+  }, [navigate])
+
+  const handleCreate = useCallback(() => {
+    dispatch(createSite())
+  }, [dispatch])
+
   return (
-    <div className="relative h-full overflow-hidden flex flex-col">
-      <div className="relative h-full overflow-y-auto p-4">
-        {sites.map((site) => {
-          return (
-            <Card
-              key={site.id}
-              className="mb-2 cursor-pointer"
-              onClick={() => navigate(`/edit/${site.id}`)}
-            >
-              <CardHeader>
-                <CardTitle>{site.common.siteName}</CardTitle>
-                <CardDescription>{site.common.description}</CardDescription>
-              </CardHeader>
-              {/* <CardContent>
-                <p>Card Content</p>
-              </CardContent> */}
-            </Card>
-          )
-        })}
+    <div className="relative h-full overflow-hidden flex">
+      <div className="relative flex-shrink-0 w-80 flex flex-col h-full overflow-hidden border-r border-solid border-gray-300">
+        <div className="relative p-2 border-b border-solid border-gray-300">
+          <Button className="w-full" onClick={handleCreate}>新建</Button>
+        </div>
+        <div className="relative h-full overflow-y-auto">
+          {sites.map((site) => {
+            return (
+              <ActionMenu
+                key={site.id}
+                items={[
+                  { id: 'delete', label: '删除', onClick: () => handleDelete(site.id), className: 'text-red-500' },
+                ]}
+              >
+                <div
+                  onClick={() => handleSelectSite(site.id)}
+                  className={
+                    cn(
+                      "h-28 border-b border-solid border-gray-100",
+                      "p-4 pb-2 w-full overflow-hidden flex flex-col h-28",
+                      currentSiteId === site.id ? "bg-gray-100" : ""
+                    )
+                  }
+                >
+                  <div className="w-full overflow-hidden flex-grow h-full flex flex-col">
+                    <h3 className="font-semibold leading-none tracking-tight">
+                      {site.common.siteName}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1 line-clamp-2 w-full whitespace-normal break-all text-wrap">
+                      {site.common.description}
+                    </p>
+                  </div>
+                  {/* <div className="action flex-shrink-0 text-xs flex justify-end"></div> */}
+                </div>
+              </ActionMenu>
+            )
+          })}
+        </div>
+      </div>
+      <div className="relative flex-grow h-full overflow-hidden">
+        <Outlet />
       </div>
     </div>
   )
