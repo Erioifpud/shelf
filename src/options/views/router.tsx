@@ -7,8 +7,10 @@ import {
 import HomePage from './Home';
 import EditPage from './Edit';
 import AppLayout from '~options/AppLayout';
-import CommonEdit from './Edit/pages/CommonEdit';
+import SiteEdit from './Edit/pages/SiteEdit';
 import SiteSelect from './Edit/pages/SiteSelect';
+import CommonEdit from './Edit/pages/CommonEdit';
+import PageEdit from './Edit/pages/PageEdit';
 
 export const router = createHashRouter(
   createRoutesFromElements(
@@ -16,7 +18,10 @@ export const router = createHashRouter(
       <Route index path='/' element={<HomePage />} />
       <Route path="/edit" element={<EditPage />}>
         <Route path="" element={<SiteSelect />}>
-          <Route path=":id" element={<CommonEdit />}></Route>
+          <Route path=":id" element={<SiteEdit />}>
+            <Route index path="common" element={<CommonEdit />} />
+            <Route path="page" element={<PageEdit />} />
+          </Route>
         </Route>
       </Route>
       <Route

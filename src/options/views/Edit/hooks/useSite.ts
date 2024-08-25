@@ -16,3 +16,8 @@ export const useCurrentSiteId = () => {
   const match = useMatch('/edit/:id');
   return match?.params.id || ''
 }
+
+export const useCurrentEditPage = () => {
+  const match = useMatch('/edit/:id/:type');
+  return match?.params.type || ''
+}
