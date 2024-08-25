@@ -38,7 +38,7 @@ const SiteEdit = memo(() => {
         value={pageType}
         onValueChange={handleNavigate}
       >
-        <TabsList>
+        <TabsList className="w-full">
           {tabs.map((tab) => (
             <TabsTrigger key={tab.page} value={tab.page}>
               {tab.label}
