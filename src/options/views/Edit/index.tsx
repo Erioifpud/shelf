@@ -17,10 +17,10 @@ const EditPage = memo(() => {
 
   return (
     <div className="relative h-full overflow-hidden flex flex-col">
-      <div className="flex-shrink-0 h-14 flex items-center px-4 border-b border-solid border-gray-500 bg-gray-700">
+      <div className="flex-shrink-0 h-14 flex items-center px-4 border-b border-solid border-gray-300">
         <Sheet open={drawerVisible} onOpenChange={setDrawerVisible}>
           <SheetTrigger>
-            <Button size="icon">
+            <Button size="icon" variant="ghost">
               <MenuIcon></MenuIcon>
             </Button>
           </SheetTrigger>
