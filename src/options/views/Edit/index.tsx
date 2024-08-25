@@ -10,6 +10,7 @@ import {
 } from '~/components/ui/sheet'
 import { Button } from '~components/ui/button';
 import { MenuIcon } from 'lucide-react';
+import { Outlet } from 'react-router-dom';
 
 const EditPage = memo(() => {
   const { drawerVisible, setDrawerVisible } = useContext(EditContext);
@@ -34,7 +35,9 @@ const EditPage = memo(() => {
           </SheetContent>
         </Sheet>
       </div>
-      <div className="relative flex-grow">EditPage</div>
+      <div className="relative flex-grow overflow-hidden">
+        <Outlet />
+      </div>
     </div>
   );
 });
