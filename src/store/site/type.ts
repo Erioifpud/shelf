@@ -1,10 +1,12 @@
-export enum DisplayMode {
-  CARD, // 左右布局，左图片、右信息，右上标题、右下描述、时间等
-  TEXT, // 纯文本列表
-  TAG, // flex 自动换行的标签胶囊
-  COLLECTION, // 大图 + 左下角小标题
-  WATERFALL, // 中图 + 左下角小标题
-}
+// export enum DisplayMode {
+//   CARD, // 左右布局，左图片、右信息，右上标题、右下描述、时间等
+//   TEXT, // 纯文本列表
+//   TAG, // flex 自动换行的标签胶囊
+//   COLLECTION, // 大图 + 左下角小标题
+//   WATERFALL, // 中图 + 左下角小标题
+// }
+
+export type DisplayMode = 'card' | 'collection' | 'tag' | 'text' | 'waterfall'
 
 export interface QueryItem {
   key: string,
@@ -361,14 +363,12 @@ export interface Page {
   detail: {
     url: string
     rule: string
-    displayMode: DisplayMode
     headers: string
   }
 
   preview: {
     url: string
     rule: string
-    displayMode: DisplayMode
     headers: string
   }
 
