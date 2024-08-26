@@ -3,7 +3,7 @@ import { useMatch } from 'react-router-dom';
 import type { RootState } from '~store';
 
 export const useCurrentSite = () => {
-  const match = useMatch('/edit/:id');
+  const match = useMatch('/edit/:id/*');
   const sites = useSelector((state: RootState) => state.site.sites)
 
   if (!match) {
@@ -13,7 +13,7 @@ export const useCurrentSite = () => {
 }
 
 export const useCurrentSiteId = () => {
-  const match = useMatch('/edit/:id');
+  const match = useMatch('/edit/:id/*');
   return match?.params.id || ''
 }
 
