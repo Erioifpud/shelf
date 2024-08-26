@@ -71,6 +71,9 @@ dependencies:
   redux-thunk:
     specifier: ^3.1.0
     version: 3.1.0(redux@5.0.1)
+  sortablejs:
+    specifier: ^1.15.2
+    version: 1.15.2
   tailwind-merge:
     specifier: ^2.5.2
     version: 2.5.2
@@ -100,6 +103,9 @@ devDependencies:
   '@types/react-dom':
     specifier: 18.2.18
     version: 18.2.18
+  '@types/sortablejs':
+    specifier: ^1.15.8
+    version: 1.15.8
   autoprefixer:
     specifier: ^10.4.20
     version: 10.4.20(postcss@8.4.41)
@@ -3351,6 +3357,10 @@ packages:
   /@types/scheduler@0.23.0:
     resolution: {integrity: sha512-YIoDCTH3Af6XM5VuwGG/QL/CJqga1Zm3NkU3HZ4ZHK2fRMPYP1VczsTUqtsf43PH/iJNVlPHAo2oWX7BSdB2Hw==}
 
+  /@types/sortablejs@1.15.8:
+    resolution: {integrity: sha512-b79830lW+RZfwaztgs1aVPgbasJ8e7AXtZYHTELNXZPsERt4ymJdjV4OccDbHQAvHrCcFpbF78jkm0R6h/pZVg==}
+    dev: true
+
   /@types/trusted-types@2.0.7:
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
     dev: false
@@ -6157,6 +6167,10 @@ packages:
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
+    dev: false
+
+  /sortablejs@1.15.2:
+    resolution: {integrity: sha512-FJF5jgdfvoKn1MAKSdGs33bIqLi3LmsgVTliuX6iITj834F+JRQZN90Z93yql8h0K2t0RwDPBmxwlbZfDcxNZA==}
     dev: false
 
   /source-map-js@1.2.0:
