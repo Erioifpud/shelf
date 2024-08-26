@@ -57,6 +57,8 @@ const PageEdit = memo(() => {
   useEffect(() => {
     sortableRef.current = new Sortable(containerRef.current, {
       sort: true,
+      animation: 150,
+      ghostClass: 'bg-gray-100',
       onEnd: (evt) => {
         handleSortPages(evt.oldIndex, evt.newIndex)
       }
