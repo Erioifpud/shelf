@@ -6,7 +6,7 @@ import { Button } from '~components/ui/button';
 import type { RootState } from '~store';
 import { createSite, deleteSite } from '~store/site/site-slice';
 import { cn } from '~utils/index';
-import { useCurrentSiteId } from '../../hooks/useSite';
+import { useCurrentSiteId } from '../../hooks';
 
 const SiteSelect = memo(() => {
   const navigate = useNavigate()

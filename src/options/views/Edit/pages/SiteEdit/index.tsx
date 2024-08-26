@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '~components/ui/tabs';
-import { useCurrentEditPage } from '../../hooks/useSite';
+import { useCurrentEditPage } from '../../hooks';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 const tabs = [

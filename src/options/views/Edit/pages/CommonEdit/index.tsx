@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from '~/components/ui/form'
 import { Input } from '~/components/ui/input'
-import { useCurrentSite } from '../../hooks/useSite';
+import { useCurrentSite } from '../../hooks';
 import { useDispatch } from 'react-redux';
 import { updateSite } from '~store/site/site-slice';
 
