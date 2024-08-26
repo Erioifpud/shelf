@@ -55,13 +55,20 @@ const SiteSelect = memo(() => {
                     )
                   }
                 >
-                  <div className="w-full overflow-hidden flex-grow h-full flex flex-col">
-                    <h3 className="font-semibold leading-none tracking-tight">
-                      {site.common.siteName}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1 line-clamp-2 w-full whitespace-normal break-all text-wrap">
-                      {site.common.description}
-                    </p>
+                  <div className="w-full overflow-hidden flex-grow h-full flex">
+                    <div className="flex flex-col flex-grow h-full pr-1">
+                      <h3 className="font-semibold leading-none tracking-tight text-sm">
+                        {site.common.siteName}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-4 line-clamp-2 w-full whitespace-normal break-all text-wrap">
+                        {site.common.description}
+                      </p>
+                    </div>
+                    {site.common.siteIcon && (
+                      <div className="w-8 flex-shrink-0">
+                        <img src={site.common.siteIcon} alt="site icon" className="w-full" />
+                      </div>
+                    )}
                   </div>
                   {/* <div className="action flex-shrink-0 text-xs flex justify-end"></div> */}
                 </div>
