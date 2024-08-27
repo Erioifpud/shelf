@@ -205,6 +205,9 @@ export interface DetailRule {
 // TODO: 要考虑的是，如果同时设置了 picture 和 video 规则，那么应该做切换显示，还是按优先级取舍
 // 帖子模式直接使用详情页去预览
 export interface PreviewRule {
+  id: string
+  name: string
+
   // 一些内容不在当前页面，在二级页面，设置后以上规则都只会对二级页面生效
   secondPageUrl: SelectAction
 
@@ -242,6 +245,9 @@ export interface PreviewRule {
 
 // 这是搜索结果页的规则
 export interface SearchRule {
+  id: string
+  name: string
+
   // 列表项的容器
   item: SelectAction
   // id
@@ -295,6 +301,9 @@ export interface SearchRule {
 
 // 标签页的规则
 export interface TagRule {
+  id: string
+  name: string
+
   // 列表项的容器
   item: SelectAction
   // id
