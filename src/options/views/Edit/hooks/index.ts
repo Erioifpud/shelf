@@ -36,7 +36,7 @@ export const usePages = () => {
 
 // 当前编辑的站点 page 对象
 export const useCurrentPage = () => {
-  const match = useMatch('/edit/*/*/page/:pageId/*');
+  const match = useMatch('/edit/:id/page/:pageId/*');
   const pages = usePages()
 
   if (!match || !pages) {
