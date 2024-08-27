@@ -100,34 +100,20 @@ const siteSlice = createSlice({
         )
       }
     },
-    pageMove: (state, action: PayloadAction<{ siteId: string, pageId: string, direction: 'up' | 'down' }>) => {
-      const { siteId, pageId } = action.payload
-      const site = state.sites.find(site => site.id === siteId)
-      if (!site || site.pages.length <= 1) {
+    updateSitePage: (state, action: PayloadAction<{ siteId: string, page: Partial<Page> }>) => {
+      const site = state.sites.find(site => site.id === action.payload.siteId)
+      if (!site) {
         return
       }
-      const pageIndex = site.pages.findIndex(page => page.id === pageId)
-      const page = site.pages[pageIndex]
+      const page = site.pages.find(page => page.id === action.payload.page.id)
       if (!page) {
         return
       }
-      if (action.payload.direction === 'up') {
-        if (pageIndex === 0) {
-          return
-        }
-        site.pages[pageIndex] = site.pages[pageIndex - 1]
-        site.pages[pageIndex - 1] = page
-      } else {
-        if (pageIndex === site.pages.length - 1) {
-          return
-        }
-        site.pages[pageIndex] = site.pages[pageIndex + 1]
-        site.pages[pageIndex + 1] = page
-      }
-    },
+      Object.assign(page, action.payload.page)
+    }
   }
 })
 
-export const { createSite, deleteSite, updateSite, createPage, pageMove } = siteSlice.actions
+export const { createSite, deleteSite, updateSite, createPage, updateSitePage } = siteSlice.actions
 
 export default siteSlice.reducer
