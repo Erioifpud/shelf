@@ -354,7 +354,7 @@ export interface Page {
   // 实时搜索建议，启用后每次输入关键字都会调用搜索接口（会去抖）将结果列出来
   searchSuggestion: boolean
   // 搜索参数的配置
-  searchParams: string
+  searchParams: QueryItem
   // 其他参数的配置
   query: QueryItem[]
   // 二级页面（没有搜索功能）

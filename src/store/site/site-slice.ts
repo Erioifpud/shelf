@@ -34,7 +34,11 @@ function createEmptyPage(): Page {
     title: 'New page',
     flags: '',
     query: [],
-    searchParams: '',
+    searchParams: {
+      key: '',
+      value: '',
+      type: 'query',
+    },
     searchSuggestion: false,
     list: {
       url: '',
