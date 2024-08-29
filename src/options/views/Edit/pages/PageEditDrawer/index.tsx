@@ -641,7 +641,7 @@ const PageEditDrawer = memo(() => {
                               <SelectContent>
                                 <SelectItem value="NONE">无</SelectItem>
                                 {currentSite.searchRules.map((rule) => (
-                                  <SelectItem key={rule.id} value={rule.id}>{rule.title}</SelectItem>
+                                  <SelectItem key={rule.id} value={rule.id}>{rule.name}</SelectItem>
                                 ))}
                               </SelectContent>
                             </Select>
