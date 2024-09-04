@@ -433,3 +433,13 @@ export interface Site {
   tagRules: TagRule[]
   listRules: ListRule[]
 }
+
+export interface RuleTypeMapper {
+  detailRules: DetailRule,
+  listRules: ListRule,
+  previewRules: PreviewRule,
+  searchRules: SearchRule,
+  tagRules: TagRule
+}
+
+export type RuleProps = keyof RuleTypeMapper

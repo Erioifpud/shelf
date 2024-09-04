@@ -12,6 +12,7 @@ import SiteSelect from './Edit/pages/SiteSelect';
 import CommonEdit from './Edit/pages/CommonEdit';
 import PageEdit from './Edit/pages/PageEdit';
 import PageEditDrawer from './Edit/pages/PageEditDrawer';
+import RulesEdit from './Edit/pages/RulesEdit';
 
 export const router = createHashRouter(
   createRoutesFromElements(
@@ -24,6 +25,11 @@ export const router = createHashRouter(
             <Route path="page" element={<PageEdit />}>
               <Route path=":pageId" element={<PageEditDrawer />} />
             </Route>
+            <Route path="list" element={<RulesEdit ruleName="listRules" />}></Route>
+            <Route path="detail" element={<RulesEdit ruleName="detailRules" />}></Route>
+            <Route path="preview" element={<RulesEdit ruleName="previewRules" />}></Route>
+            <Route path="search" element={<RulesEdit ruleName="searchRules" />}></Route>
+            <Route path="tag" element={<RulesEdit ruleName="tagRules" />}></Route>
           </Route>
         </Route>
       </Route>
