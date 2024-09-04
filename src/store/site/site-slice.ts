@@ -16,7 +16,7 @@ function createAction(): SelectAction {
   }
 }
 
-function createListRule(): ListRule {
+export function createListRule(): ListRule {
   return {
     id: randomUUID(),
     name: 'New list rule',
@@ -49,7 +49,7 @@ function createListRule(): ListRule {
   }
 }
 
-function createDetailRule(): DetailRule {
+export function createDetailRule(): DetailRule {
   return {
     id: randomUUID(),
     name: 'New detail rule',
@@ -113,7 +113,7 @@ function createDetailRule(): DetailRule {
   }
 }
 
-function createPreviewRule(): PreviewRule {
+export function createPreviewRule(): PreviewRule {
   return {
     id: randomUUID(),
     name: 'New preview rule',
@@ -139,7 +139,7 @@ function createPreviewRule(): PreviewRule {
   }
 }
 
-function createSearchRule(): SearchRule {
+export function createSearchRule(): SearchRule {
   return {
     id: randomUUID(),
     name: 'New search rule',
@@ -172,7 +172,7 @@ function createSearchRule(): SearchRule {
   }
 }
 
-function createTagRule(): TagRule {
+export function createTagRule(): TagRule {
   return {
     id: randomUUID(),
     name: 'New tag rule',
