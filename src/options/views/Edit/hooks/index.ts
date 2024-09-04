@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useMatch } from 'react-router-dom';
 import type { RootState } from '~store';
+import type { RuleProps } from '~store/site/type';
 
 // 当前编辑的站点对象
 export const useCurrentSite = () => {
@@ -49,4 +50,33 @@ export const useCurrentPage = () => {
 export const useCurrentPageId = () => {
   const page = useCurrentPage()
   return page?.id || ''
+}
+
+const ruleTypeMapper: Record<string, RuleProps> = {
+  list: 'listRules',
+  detail: 'detailRules',
+  preview: 'previewRules',
+  search: 'searchRules',
+  tag: 'tagRules'
+}
+
+// 当前编辑的站点 rule 对象
+export const useCurrentRule = () => {
+  const match = useMatch('/edit/:id/:ruleType/:ruleId/*');
+  const site = useCurrentSite()
+
+  if (!match || !site) {
+    return null;
+  }
+  const list = site[ruleTypeMapper[match.params.ruleType]]
+  if (!list) {
+    return null
+  }
+  return list.find(rule => rule.id === match.params.ruleId)
+}
+
+// 当前编辑的站点 rule id
+export const useCurrentRuleId = () => {
+  const rule = useCurrentRule()
+  return rule?.id || ''
 }
