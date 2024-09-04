@@ -65,6 +65,11 @@ const PageEdit = memo(() => {
     })
   }, [])
 
+  // 站点不存在
+  if (!site) {
+    return <div>缺少该站点信息，请选择其他站点</div>
+  }
+
   return (
     <div className="relative h-full overflow-hidden px-4 py-2 flex flex-col">
       <div className="relative flex-shrink-0 py-2">
