@@ -337,7 +337,6 @@ const siteSlice = createSlice({
           return
       }
       const property = action.payload.ruleName
-      console.log('🚀 ~ property:', `${property}`)
       site[property] = [
         ...site[property],
         createFn(),
