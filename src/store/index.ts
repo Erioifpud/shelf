@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { useDispatch, useSelector } from "react-redux"
 import type { TypedUseSelectorHook } from "react-redux"
-import { syncStorage } from "redux-persist-webextension-storage"
+import { localStorage } from "redux-persist-webextension-storage"
 
 import {
   FLUSH,
@@ -26,7 +26,7 @@ const combinedReducers = combineReducers({
 const persistConfig = {
   key: "root",
   version: 1,
-  storage: syncStorage
+  storage: localStorage
 }
 
 // TODO: Fix persistReducer so it doesn't break the types
@@ -60,7 +60,9 @@ export const persistor = persistStore(store)
 
 // This is what makes Redux sync properly with multiple pages
 // Open your extension's options page and popup to see it in action
-new Storage().watch({
+new Storage({
+  area: 'local'
+}).watch({
   [`persist:${persistConfig.key}`]: (change) => {
     const { oldValue, newValue } = change
     const updatedKeys = []
