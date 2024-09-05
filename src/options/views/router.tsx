@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import HomePage from './Home';
 import EditPage from './Edit';
+import ReaderPage from './Reader';
 import AppLayout from '~options/AppLayout';
 import SiteEdit from './Edit/pages/SiteEdit';
 import SiteSelect from './Edit/pages/SiteSelect';
@@ -19,6 +20,7 @@ export const router = createHashRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />}>
       <Route index path='/' element={<HomePage />} />
+      <Route index path='/reader/' element={<ReaderPage />} />
       <Route path="/edit" element={<EditPage />}>
         <Route path="" element={<SiteSelect />}>
           <Route path=":id" element={<SiteEdit />}>
@@ -47,7 +49,7 @@ export const router = createHashRouter(
       </Route>
       <Route
         path="*"
-        element={<Navigate to="/home" replace={true} />}
+        element={<Navigate to="/" replace={true} />}
       />
     </Route>
   )
