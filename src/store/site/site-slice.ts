@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
 import { randomUUID } from '~utils/uuid'
 import type { Page, SelectAction, Site, ListRule, PreviewRule, DetailRule, SearchRule, TagRule, RuleProps, RuleTypeMapper } from './type'
+import { purifySite } from '~utils'
 
 interface SiteState {
   sites: Site[]
@@ -289,7 +290,7 @@ const siteSlice = createSlice({
     updateSite: (state, action: PayloadAction<Partial<Site>>) => {
       const site = state.sites.find(site => site.id === action.payload.id)
       if (site) {
-        Object.assign(site, action.payload)
+        purifySite(Object.assign(site, action.payload))
       }
     },
     createPage: (state, action: PayloadAction<string>) => {
