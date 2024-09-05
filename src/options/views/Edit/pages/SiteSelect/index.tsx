@@ -7,6 +7,7 @@ import type { RootState } from '~store';
 import { createSite, deleteSite } from '~store/site/site-slice';
 import { cn } from '~utils/index';
 import { useCurrentSiteId } from '../../hooks';
+import { goToList } from '~store/reader-slice';
 
 const SiteSelect = memo(() => {
   const navigate = useNavigate()
@@ -30,6 +31,23 @@ const SiteSelect = memo(() => {
     dispatch(createSite())
   }, [dispatch])
 
+  const handleEnter = useCallback((id: string) => {
+    const site = sites.find(s => s.id === id)
+    if (!site) {
+      return
+    }
+    const pages = site.pages
+    if (!pages.length) {
+      // TODO: 提示需要先添加页面
+      return
+    }
+    dispatch(goToList({
+      siteId: id,
+      pageId: pages[0].id
+    }))
+    navigate(`/reader`)
+  }, [])
+
   return (
     <div className="relative h-full overflow-hidden flex">
       <div className="relative flex-shrink-0 w-80 flex flex-col h-full overflow-hidden border-r border-solid border-gray-300">
@@ -42,6 +60,7 @@ const SiteSelect = memo(() => {
               <ActionMenu
                 key={site.id}
                 items={[
+                  { id: 'enter', label: '使用', onClick: () => handleEnter(site.id) },
                   { id: 'delete', label: '删除', onClick: () => handleDelete(site.id), className: 'text-red-500' },
                 ]}
               >
