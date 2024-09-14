@@ -1,7 +1,5 @@
-export const randomUUID = () => {
-  return self.crypto.randomUUID()
-}
+import { nanoid } from 'nanoid'
 
-export const emptyUUID = () => {
-  return '00000000-0000-0000-0000-000000000000'
+export const randomUUID = () => {
+  return nanoid()
 }
