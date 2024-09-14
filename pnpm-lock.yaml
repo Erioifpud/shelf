@@ -56,6 +56,9 @@ dependencies:
   lucide-react:
     specifier: ^0.435.0
     version: 0.435.0(react@18.2.0)
+  nanoid:
+    specifier: ^5.0.7
+    version: 5.0.7
   plasmo:
     specifier: 0.88.0
     version: 0.88.0(postcss@8.4.41)(react-dom@18.2.0)(react@18.2.0)
@@ -5440,6 +5443,12 @@ packages:
 
   /nanoid@5.0.3:
     resolution: {integrity: sha512-I7X2b22cxA4LIHXPSqbBCEQSL+1wv8TuoefejsX4HFWyC6jc5JG7CEaxOltiKjc1M+YCS2YkrZZcj4+dytw9GA==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    dev: false
+
+  /nanoid@5.0.7:
+    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
     dev: false
