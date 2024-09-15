@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { memo } from 'react'
 import '../global.css'
 import { EditContextProvider } from './views/Edit/context'
+import { ReaderContextProvider } from './views/Reader/context'
 
 const AppLayout = memo(() => {
   // const location = useLocation()
@@ -18,11 +19,13 @@ const AppLayout = memo(() => {
   return (
     <Provider store={store}>
       <EditContextProvider>
-        <PersistGate loading={null} persistor={persistor}>
-          <div className="relative h-full overflow-hidden">
-            <Outlet />
-          </div>
-        </PersistGate>
+        <ReaderContextProvider>
+          <PersistGate loading={null} persistor={persistor}>
+            <div className="relative h-full overflow-hidden">
+              <Outlet />
+            </div>
+          </PersistGate>
+        </ReaderContextProvider>
       </EditContextProvider>
     </Provider>
   )
