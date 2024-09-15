@@ -15,12 +15,30 @@ import PageEdit from './Edit/pages/PageEdit';
 import PageEditDrawer from './Edit/pages/PageEditDrawer';
 import RuleEditDrawer from './Edit/pages/RuleEditDrawer';
 import RulesEdit from './Edit/pages/RulesEdit';
+import ListPage from './Reader/pages/List';
+import SearchPage from './Reader/pages/Search';
+import SearchResultPage from './Reader/pages/SearchResult';
+import DetailPage from './Reader/pages/Detail';
+import PreviewPage from './Reader/pages/Preview';
 
+// /reader/:siteId/:pageId - 列表页
+// /reader/:siteId/:pageId/search - 搜索输入页
+// /reader/:siteId/:pageId/search/:keyword - 搜索结果页
+// /reader/:siteId/:pageId/detail/:itemId - 详情页
+// /reader/:siteId/:pageId/detail/:itemId/chapter/:chapterId - 阅读页
+// /reader/:siteId/:pageId/detail/:itemId/chapter/:chapterId/:page - 阅读页
 export const router = createHashRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />}>
       <Route index path='/' element={<HomePage />} />
-      <Route index path='/reader/' element={<ReaderPage />} />
+      <Route path='/reader' element={<ReaderPage />}>
+        <Route path=':siteId/:pageId/detail/:itemId/chapter/:chapterId/:page' element={<PreviewPage />}></Route>
+        <Route path=':siteId/:pageId/detail/:itemId/chapter/:chapterId' element={<PreviewPage />}></Route>
+        <Route path=':siteId/:pageId/detail/:itemId' element={<DetailPage />}></Route>
+        <Route path=':siteId/:pageId/search/:keyword' element={<SearchResultPage />}></Route>
+        <Route path=':siteId/:pageId/search' element={<SearchPage />}></Route>
+        <Route index path=':siteId/:pageId' element={<ListPage />}></Route>
+      </Route>
       <Route path="/edit" element={<EditPage />}>
         <Route path="" element={<SiteSelect />}>
           <Route path=":id" element={<SiteEdit />}>

@@ -1,8 +1,11 @@
 import { memo } from 'react';
+import { Outlet } from 'react-router-dom';
 
 const ReaderPage = memo(() => {
   return (
-    <div className="">reader</div>
+    <div className="">
+      <Outlet />
+    </div>
   )
 })
 
