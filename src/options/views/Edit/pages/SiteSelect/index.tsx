@@ -7,7 +7,6 @@ import type { RootState } from '~store';
 import { createSite, deleteSite } from '~store/site/site-slice';
 import { cn } from '~utils/index';
 import { useCurrentSiteId } from '../../hooks';
-import { goToList } from '~store/reader-slice';
 
 const SiteSelect = memo(() => {
   const navigate = useNavigate()
@@ -41,11 +40,7 @@ const SiteSelect = memo(() => {
       // TODO: 提示需要先添加页面
       return
     }
-    dispatch(goToList({
-      siteId: id,
-      pageId: pages[0].id
-    }))
-    navigate(`/reader`)
+    navigate(`/reader/${id}/${pages[0].id}`)
   }, [])
 
   return (

@@ -17,12 +17,10 @@ import {
 import { Storage } from "@plasmohq/storage"
 
 import siteSlice from "./site/site-slice"
-import readerSlice from "./reader-slice"
 
 // Here you can add all your reducers
 const combinedReducers = combineReducers({
   site: siteSlice,
-  reader: readerSlice
 })
 
 const persistConfig = {
