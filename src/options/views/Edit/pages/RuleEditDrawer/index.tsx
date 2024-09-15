@@ -7,6 +7,7 @@ import { useCurrentRule, useCurrentSite } from '../../hooks';
 import { useDispatch } from 'react-redux';
 import { createDetailRule, createListRule, createPreviewRule, createSearchRule, updateSiteRule } from '~store/site/site-slice';
 import { Input } from '~/components/ui/input'
+import { Textarea } from '~/components/ui/textarea'
 import { Button } from '~/components/ui/button'
 import { map } from 'lodash-es'
 import {
@@ -299,7 +300,7 @@ const RuleEditDrawer = memo((props: Props) => {
                               <FormItem>
                                 <FormLabel>请求头</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="" {...field} />
+                                  <Textarea placeholder="" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -312,7 +313,7 @@ const RuleEditDrawer = memo((props: Props) => {
                               <FormItem>
                                 <FormLabel>图片请求头</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="" {...field} />
+                                  <Textarea placeholder="" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>

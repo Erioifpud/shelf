@@ -7,6 +7,7 @@ import { useCurrentPage, useCurrentSite } from '../../hooks';
 import { useDispatch } from 'react-redux';
 import { updateSitePage } from '~store/site/site-slice';
 import { Input } from '~/components/ui/input'
+import { Textarea } from '~/components/ui/textarea'
 import { Checkbox } from '~/components/ui/checkbox'
 import { Button } from '~/components/ui/button'
 import {
@@ -392,7 +393,7 @@ const PageEditDrawer = memo(() => {
                         <FormItem>
                           <FormLabel>详情页请求头</FormLabel>
                           <FormControl>
-                            <Input placeholder="" {...field} />
+                            <Textarea placeholder="" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -446,7 +447,7 @@ const PageEditDrawer = memo(() => {
                         <FormItem>
                           <FormLabel>浏览页请求头</FormLabel>
                           <FormControl>
-                            <Input placeholder="" {...field} />
+                            <Textarea placeholder="" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -524,7 +525,7 @@ const PageEditDrawer = memo(() => {
                         <FormItem>
                           <FormLabel>列表页请求头</FormLabel>
                           <FormControl>
-                            <Input placeholder="" {...field} />
+                            <Textarea placeholder="" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -602,7 +603,7 @@ const PageEditDrawer = memo(() => {
                         <FormItem>
                           <FormLabel>标签页请求头</FormLabel>
                           <FormControl>
-                            <Input placeholder="" {...field} />
+                            <Textarea placeholder="" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -680,7 +681,7 @@ const PageEditDrawer = memo(() => {
                         <FormItem>
                           <FormLabel>搜索页请求头</FormLabel>
                           <FormControl>
-                            <Input placeholder="" {...field} />
+                            <Textarea placeholder="" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
