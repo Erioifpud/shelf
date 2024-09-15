@@ -41,7 +41,7 @@ const SiteSelect = memo(() => {
       return
     }
     navigate(`/reader/${id}/${pages[0].id}`)
-  }, [])
+  }, [sites])
 
   return (
     <div className="relative h-full overflow-hidden flex">
