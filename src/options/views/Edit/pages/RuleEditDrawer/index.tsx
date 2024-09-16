@@ -26,6 +26,7 @@ import {
 } from '~/components/ui/form'
 import { ScrollArea } from '~/components/ui/scroll-area'
 import type { RuleProps, SelectAction } from '~store/site/type';
+import { toast } from '~hooks/use-toast';
 
 
 const SelectActionSchema = z.object({
@@ -248,7 +249,10 @@ const RuleEditDrawer = memo((props: Props) => {
         ...values,
       }
     }))
-    // TODO: 提示保存成功
+    toast({
+      title: '保存成功',
+      description: '规则已保存',
+    })
   }, [dispatch, currentSite])
 
   const handleClose = useCallback((flag: boolean) => {

@@ -34,6 +34,7 @@ import {
   SelectValue,
 } from '~/components/ui/select'
 import { ScrollArea } from '~/components/ui/scroll-area'
+import { toast } from '~hooks/use-toast';
 
 const QueryItem = z.object({
   key: z.string().default(''),
@@ -150,7 +151,10 @@ const PageEditDrawer = memo(() => {
         ...values,
       }
     }))
-    // TODO: 提示保存成功
+    toast({
+      title: '保存成功',
+      description: '页面信息已保存',
+    })
   }, [dispatch, currentSite])
 
   const handleClose = useCallback((flag: boolean) => {

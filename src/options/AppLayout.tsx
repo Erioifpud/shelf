@@ -6,6 +6,7 @@ import { memo } from 'react'
 import '../global.css'
 import { EditContextProvider } from './views/Edit/context'
 import { ReaderContextProvider } from './views/Reader/context'
+import { Toaster } from "~/components/ui/toaster"
 
 const AppLayout = memo(() => {
   // const location = useLocation()
@@ -24,6 +25,7 @@ const AppLayout = memo(() => {
             <div className="relative h-full overflow-hidden">
               <Outlet />
             </div>
+            <Toaster />
           </PersistGate>
         </ReaderContextProvider>
       </EditContextProvider>

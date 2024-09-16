@@ -16,6 +16,7 @@ import { Input } from '~/components/ui/input'
 import { useCurrentSite } from '../../hooks';
 import { useDispatch } from 'react-redux';
 import { updateSite } from '~store/site/site-slice';
+import { toast } from '~hooks/use-toast';
 
 const formSchema = z.object({
   siteName: z.string().min(1),
@@ -62,7 +63,11 @@ const CommonEdit = memo(() => {
       id: currentSite.id,
       common: values
     }))
-    // TODO: 提示保存成功
+    console.log(123)
+    toast({
+      title: '保存成功',
+      description: '站点信息已保存',
+    })
   }, [dispatch, currentSite])
 
   return (

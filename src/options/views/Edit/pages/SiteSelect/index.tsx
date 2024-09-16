@@ -7,6 +7,7 @@ import type { RootState } from '~store';
 import { createSite, deleteSite } from '~store/site/site-slice';
 import { cn } from '~utils/index';
 import { useCurrentSiteId } from '../../hooks';
+import { toast } from '~hooks/use-toast';
 
 const SiteSelect = memo(() => {
   const navigate = useNavigate()
@@ -37,7 +38,10 @@ const SiteSelect = memo(() => {
     }
     const pages = site.pages
     if (!pages.length) {
-      // TODO: 提示需要先添加页面
+      toast({
+        description: '请先添加页面',
+        variant: 'destructive',
+      })
       return
     }
     navigate(`/reader/${id}/${pages[0].id}`)
