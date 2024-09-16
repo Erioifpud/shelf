@@ -17,3 +17,18 @@ export function usePageAndSite() {
   const page = site?.pages.find(p => p.id === pageId)
   return { site, page, siteId, pageId }
 }
+
+export function usePageList() {
+  const { page, site } = usePageAndSite()
+  if (!page || !site) {
+    return null
+  }
+  const info = page.list
+  const ruleId = info.rule
+  const ruleInfo = site.listRules.find(r => r.id === ruleId)
+  return {
+    page,
+    ...info,
+    ruleInfo
+  }
+}
